@@ -138,7 +138,8 @@ const App: () => Node = () => {
       );
       const json = await response.json();
       console.log('JSON DATA', JSON.stringify(json));
-      //setLiveBroadcast(json.items);
+      setLiveBroadcast(json.items);
+      setModalVisible(!modalVisible)
     } catch (error) {
       console.error(error);
     } finally {
@@ -352,7 +353,7 @@ const App: () => Node = () => {
                 />
                 <Pressable
                   style={[styles.button, styles.buttonClose]}
-                  onPress={() => setModalVisible(!modalVisible)}>
+                  onPress={() => posteBroadcastSchedules}>
                   <Text style={styles.textStyle}>Create</Text>
                 </Pressable>
               </View>
